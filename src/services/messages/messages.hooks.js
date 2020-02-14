@@ -4,12 +4,14 @@ const processMessage = require('../../hooks/process-message');
 
 const populateUser = require('../../hooks/populate-user');
 
+const processId = require('../../hooks/process-id');
+
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [processMessage()],
+    create: [processMessage(), processId()],
     update: [],
     patch: [],
     remove: []
